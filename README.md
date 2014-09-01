@@ -5,6 +5,8 @@ Execute commmands in the Docker containers.
 
 > With great power comes great responsibility.
 
+![](http://media.tumblr.com/b1370b7b7f035e8b62ae8d33e4fd0d4e/tumblr_inline_n9ee84uBgz1raprkq.gif)
+
 Installation
 ------------
 
