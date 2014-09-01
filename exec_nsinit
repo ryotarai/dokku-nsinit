@@ -1,0 +1,8 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
+cd /var/lib/docker/execdriver/native/$1
+$SCRIPT_DIR/nsinit exec "$2"
+
+

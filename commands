@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
+
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
+case "$1" in
+  nsinit)
+    if [[ -z $2 ]]; then
+      echo "Please specify an app to exec"
+      exit 1
+    fi
+    APP=$2
+
+    if [[ -z $3 ]]; then
+      echo "Please specify a command to exec"
+      exit 1
+    fi
+    COMMAND=$3
+
+    CONTAINER_ID=$(docker ps --no-trunc | grep dokku/$APP | cut -d' ' -f1)
+    exec sudo $SCRIPT_DIR/exec_nsinit $CONTAINER_ID $COMMAND
+    ;;
+
+  help)
+    cat && cat<<EOF
+    nsinit <app> <command>                          run command with nsinit
+EOF
+  ;;
+
+esac
