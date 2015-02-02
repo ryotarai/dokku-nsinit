@@ -1,6 +1,8 @@
 dokku-nsinit
 ============
 
+**This plugin is deprecated.**
+
 Execute commmands in the Docker containers.
 
 > With great power comes great responsibility.
